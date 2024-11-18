@@ -28,7 +28,7 @@ public class Product {
     @Column(nullable = false)
     private boolean refrigerated;
 
-    // Getters and setters...
+    // Getters and setters..
 
     public int getProductId() {
         return productId;
