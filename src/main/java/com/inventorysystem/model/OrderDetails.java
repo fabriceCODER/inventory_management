@@ -1,7 +1,5 @@
 package com.inventorysystem.model;
 
-
-
 import jakarta.persistence.*;
 import java.util.Date;
 

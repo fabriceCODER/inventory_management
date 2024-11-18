@@ -1,6 +1,5 @@
 package com.inventorysystem.dao;
 
-
 import com.inventorysystem.model.Product;
 import com.inventorysystem.util.HibernateUtil;
 import org.hibernate.Session;
