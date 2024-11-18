@@ -1,5 +1,6 @@
 package com.inventorysystem.model;
 
+
 import jakarta.persistence.*;
 import java.util.Set;
 
@@ -18,13 +19,6 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Delivery> deliveries;
-
-    public Customer(int customerId, String customerAddress, Set<Delivery> deliveries, String customerName) {
-        this.customerId = customerId;
-        this.customerAddress = customerAddress;
-        this.deliveries = deliveries;
-        this.customerName = customerName;
-    }
 
     // Getters and setters...
 
@@ -52,12 +46,5 @@ public class Customer {
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
     }
-
-    public Set<Delivery> getDeliveries() {
-        return deliveries;
-    }
-
-    public void setDeliveries(Set<Delivery> deliveries) {
-        this.deliveries = deliveries;
-    }
 }
+
