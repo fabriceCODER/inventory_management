@@ -3,6 +3,7 @@ package com.inventorysystem.model;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 
+
 @Entity
 @Table(name = "Product")
 public class Product {
