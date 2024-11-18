@@ -1,0 +1,19 @@
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/inventory_db</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Entity Mappings -->
+        <mapping class="com.inventorysystem.model.Customer" />
+        <mapping class="com.inventorysystem.model.Product" />
+        <mapping class="com.inventorysystem.model.Inventory" />
+        <mapping class="com.inventorysystem.model.Order" />
+        <mapping class="com.inventorysystem.model.Provider" />
+        <mapping class="com.inventorysystem.model.Warehouse" />
+    </session-factory>
+</hibernate-configuration>
