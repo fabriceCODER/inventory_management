@@ -53,8 +53,8 @@ public class OrderDetailController extends HttpServlet {
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        OrderDetail orderDetail = orderDetailDao.getOrderDetail(id);
-        request.setAttribute("orderDetail", orderDetail);
+        OrderDetails orderDetail = orderDetailDao.getOrderDetail(id);
+        request.setAttribute("orderDetails", orderDetail);
         RequestDispatcher dispatcher = request.getRequestDispatcher("orderDetail-form.jsp");
         dispatcher.forward(request, response);
     }
@@ -65,7 +65,7 @@ public class OrderDetailController extends HttpServlet {
         String quantityOrdered = request.getParameter("quantityOrdered");
         String priceEach = request.getParameter("priceEach");
 
-        OrderDetail orderDetail = new OrderDetail();
+        OrderDetails orderDetail = new OrderDetails();
         orderDetail.setQuantityOrdered(Integer.parseInt(quantityOrdered));
         orderDetail.setPriceEach(Double.parseDouble(priceEach));
 
