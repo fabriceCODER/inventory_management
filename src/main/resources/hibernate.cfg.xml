@@ -15,5 +15,10 @@
         <mapping class="com.inventorysystem.model.Order" />
         <mapping class="com.inventorysystem.model.Provider" />
         <mapping class="com.inventorysystem.model.Warehouse" />
+        <mapping class="com.inventorysystem.model.Delivery" />
+        <mapping class="com.inventorysystem.model.OrderDetails" />
+        <mapping class="com.inventorysystem.model.Location" />
+        <mapping class="com.inventorysystem.model.Transfer" />
+        <mapping class="com.inventorysystem.model.DeliveryDetail" />
     </session-factory>
 </hibernate-configuration>
