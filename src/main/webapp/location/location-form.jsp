@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Location Form</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 <h1>${location != null ? "Edit Location" : "New Location"}</h1>
