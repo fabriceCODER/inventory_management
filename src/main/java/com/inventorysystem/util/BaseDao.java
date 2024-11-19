@@ -1,10 +1,10 @@
-package com.inventorysystem.dao;
+package com.inventorysystem.util;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-//
+//BaseDao: Handling repetetive tasks like opening and closing sessions and transactions
 public class BaseDao {
     protected SessionFactory sessionFactory;
 
