@@ -1,24 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
 <hibernate-configuration>
     <session-factory>
+        <!-- Database connection settings -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/inventory_db</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">root</property>
+
+        <!-- Hibernate settings -->
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
 
-        <!-- Entity Mappings -->
-        <mapping class="com.inventorysystem.model.Customer" />
-        <mapping class="com.inventorysystem.model.Product" />
-        <mapping class="com.inventorysystem.model.Inventory" />
-        <mapping class="com.inventorysystem.model.Order" />
-        <mapping class="com.inventorysystem.model.Provider" />
-        <mapping class="com.inventorysystem.model.Warehouse" />
-        <mapping class="com.inventorysystem.model.Delivery" />
-        <mapping class="com.inventorysystem.model.OrderDetails" />
-        <mapping class="com.inventorysystem.model.Location" />
-        <mapping class="com.inventorysystem.model.Transfer" />
-        <mapping class="com.inventorysystem.model.DeliveryDetail" />
+        <!-- Entities -->
+        <mapping class="com.inventorysystem.model.Provider"/>
+        <mapping class="com.inventorysystem.model.Product"/>
+        <mapping class="com.inventorysystem.model.Customer"/>
+        <mapping class="com.inventorysystem.model.Order"/>
+        <mapping class="com.inventorysystem.model.OrderDetails"/>
+        <mapping class="com.inventorysystem.model.Inventory"/>
+        <mapping class="com.inventorysystem.model.Transfer"/>
+        <mapping class="com.inventorysystem.model.Delivery"/>
+        <mapping class="com.inventorysystem.model.DeliveryDetail"/>
+        <mapping class="com.inventorysystem.model.Location"/>
+        <mapping class="com.inventorysystem.model.Warehouse"/>
     </session-factory>
 </hibernate-configuration>
