@@ -10,41 +10,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory List</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <title>Edit Inventory</title>
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
 <header>
-    <h1>Inventory List</h1>
-    <a href="create.jsp" class="btn btn-primary">Add New Inventory</a>
+    <h1>Edit Inventory</h1>
 </header>
 
-<table class="table">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Warehouse</th>
-        <th>Product</th>
-        <th>Stock Level</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="inventory" items="${inventories}">
-        <tr>
-            <td>${inventory.id}</td>
-            <td>${inventory.warehouse.name}</td>
-            <td>${inventory.product.name}</td>
-            <td>${inventory.stockLevel}</td>
-            <td>
-                <a href="update.jsp?id=${inventory.id}" class="btn btn-edit">Edit</a>
-                <a href="delete?id=${inventory.id}" class="btn btn-delete">Delete</a>
-            </td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
-</body>
-</html>
+<form action="update" method="post" class="form">
+    <input type="hidden" name="id" value="${inventory.id}">
 
+    <div class="form-group">
+        <label for="warehouse">Warehouse:</label>
+        <select id="warehouse" name="warehouseId" required>
+            <c:forEach var="warehouse" items="${warehouses}">
+                <option value="${warehouse.id}"
+                        <c:if test="${warehouse.id == inventory.warehouse.id}">selected</c:if>>${warehouse.name}</option>
+            </c:forEach>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="product">Product:</label>
+        <select id="product" name="productId" required>
+            <c:forEach var="product" items="${products}">
+                <option value="${product.id}"
+                        <c:if test="${product.id == inventory.product.id}">selected</c:if>>${product.name}</option>
+            </c:forEach>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="stockLevel">Stock Level:</label>
+        <input type="number" id="stockLevel" name="stockLevel" value="${inventory.stockLevel}" required>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="list.jsp" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+</body>
 </html>
