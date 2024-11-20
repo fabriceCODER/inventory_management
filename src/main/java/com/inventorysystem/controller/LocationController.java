@@ -45,12 +45,12 @@ public class LocationController extends HttpServlet {
     private void listLocations(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Location> locations = locationDao.getAllLocations();
         request.setAttribute("locations", locations);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("location-list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("create.jsp");
         dispatcher.forward(request, response);
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("location-form.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -58,7 +58,7 @@ public class LocationController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Location location = locationDao.getLocation(id);
         request.setAttribute("location", location);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("location-form.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
         dispatcher.forward(request, response);
     }
 
