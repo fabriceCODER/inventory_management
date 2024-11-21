@@ -2,12 +2,26 @@ package com.inventorysystem.dao;
 
 import com.inventorysystem.model.Product;
 import com.inventorysystem.util.BaseDao;
+import com.inventorysystem.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.management.Query;
 import java.util.List;
 
 public class ProductDao extends BaseDao {
+
+    public List<Product> searchProducts(String searchTerm) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+         Query<Product> query = session.createQuery("FROM Product WHERE name LIKE :searchTerm", Product.class);
+            query.setParameter("searchTerm", "%" + searchTerm + "%");
+            return query.getResultList();
+        } finally {
+            session.close();
+        }
+    }
+
 
     public List<Product> getAllProducts() {
         try (Session session = getSession()) {

@@ -20,27 +20,19 @@ public class ProductController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
+        String searchTerm = request.getParameter("search") != null ? request.getParameter("search") : "";
+        List<Product> products;
 
-        try {
-            switch (action) {
-                case "new":
-                    showNewForm(request, response);
-                    break;
-                case "edit":
-                    showEditForm(request, response);
-                    break;
-                case "delete":
-                    deleteProduct(request, response);
-                    break;
-                default:
-                    listProducts(request, response);
-                    break;
-            }
-        } catch (Exception e) {
-            throw new ServletException(e);
+        if (!searchTerm.isEmpty()) {
+            products = productDao.searchProducts(searchTerm);
+        } else {
+            products = productDao.getPaginatedProducts(page, size);
         }
+
+        request.setAttribute("products", products);
+        request.getRequestDispatcher("list.jsp").forward(request, response);
     }
+
 
     private void listProducts(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Product> products = productDao.getAllProducts();
