@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
+
 @WebServlet(name = "ProductController", urlPatterns = {"/products", "/product"})
 public class ProductController extends HttpServlet {
     private ProductDao productDao;
@@ -17,6 +18,23 @@ public class ProductController extends HttpServlet {
     public void init() throws ServletException {
         productDao = new ProductDao();
     }
+    /* Pagination and search functionality*/
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int page = Integer.parseInt(request.getParameter("page") != null ? request.getParameter("page") : "1");
+        int size = Integer.parseInt(request.getParameter("size") != null ? request.getParameter("size") : "10");
+
+        ProductDao productDAO = new ProductDao();
+        List<Product> products = productDao.getPaginatedProducts(page, size);
+        int totalRecords = productDao.getTotalCount(); // Implement a `getTotalCount` DAO method
+        int totalPages = (int) Math.ceil((double) totalRecords / size);
+
+        request.setAttribute("products", products);
+        request.setAttribute("currentPage", page);
+        request.setAttribute("totalPages", totalPages);
+
+        request.getRequestDispatcher("list.jsp").forward(request, response);
+    }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

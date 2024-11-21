@@ -22,6 +22,20 @@ public class ProductDao extends BaseDao {
         }
     }
 
+    public List<Product> getPaginatedProducts(int page, int size) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            Query<Product> query = session.createQuery("FROM Product", Product.class);
+            query.setFirstResult((page - 1) * size); // Offset
+            query.setMaxResults(size); // Limit
+            return query.getResultList();
+        } finally {
+            session.close();
+        }
+    }
+
+
+
 
     public List<Product> getAllProducts() {
         try (Session session = getSession()) {
