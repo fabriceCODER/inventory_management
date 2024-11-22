@@ -89,7 +89,7 @@ Use the search bar and pagination controls to manage large datasets.
 Responsive Design:
 Use the application seamlessly on both desktop and mobile devices.
 
-Project Structure: 
+## Project Structure ##
 
 src/
 ├── main/
