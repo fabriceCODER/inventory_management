@@ -36,7 +36,7 @@ Hibernate: Integrated via Maven dependencies.
 
 ## Installation and Setup ##
 1. Clone the Repository
-   git clone https://github.com/your-username/inventory-management-system.git
+   git clone https://github.com/fabriceCODER/inventory_management.git
    cd inventory-management-system
 2. Configure PostgreSQL
    Create a database named inventory_db
