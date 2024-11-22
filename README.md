@@ -79,7 +79,7 @@ c. Start Tomcat:
 6. Access the Application
 Open your browser and navigate to: http://localhost:8080/inventory-management-system
 
-Usage
+## Usage ##
 Navigation:
 Access entities like Warehouses, Products, Inventory, etc., via the navigation menu.
 CRUD Operations:
@@ -118,7 +118,7 @@ src/
 │           ├── header.jsp
 │           └── footer.jsp
 
-Contributing
+## Contributing ##
 Fork the repository.
 Create a new branch for your feature or fix:
 git checkout -b feature-name
@@ -129,10 +129,11 @@ Push to the branch:
 git push origin feature-name
 Submit a Pull Request
 
-License
+## License ##
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-Future Enhancements
+## Future Enhancements ##
+
 Implement REST APIs for integration with external systems.
 Add advanced role-based access control.
 Integrate dashboards for analytics and reporting.
